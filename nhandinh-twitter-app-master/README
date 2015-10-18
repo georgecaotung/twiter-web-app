@@ -1,0 +1,5 @@
+Hi Nhan, this is the code for the server side
+=================================
+
+Please config MongoDB database @application.conf then start the project using "sbt run" or run in production mode using "play-twitter-app-1.0/bin/play-twitter-app -Dconfig.file=/home/ubuntu/setup/application.conf -Dhttp.port=9000  &"
+for example

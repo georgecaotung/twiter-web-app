@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>With love from KienNT: Create your own beautiful magazines, books, websites for Web, iOS & Android.</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<link href='http://fonts.googleapis.com/css?family=Vollkorn:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="res/css/app.css">
+
+		<script src="res/js/library/jquery-2.1.4.min.js" type="text/javascript"></script>
+		<script src="res/js/library/templating.js" type="text/javascript"></script>
+		<script src="res/js/Config.js" type="text/javascript"></script>
+		<script src="res/js/app/Register.js" type="text/javascript"></script>
+		<script src="res/js/app/Timeline.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<div id="tmpl"></div>
+		<div class="container">
+			<div class="header">
+				<a class="item" href="timeline.html">Timeline</a>
+				<a class="item" href="search.html">Search</a>
+				<span class="right"> <a class="item" href="register.html">Register</a> <a class="item" href="login.html">Login</a> </span>
+			</div>
+			<div class="top-bar">
+				<div class="top-header">
+					<span class="small-title">Sweeter</span>
+				</div>
+			</div>
+			<div class="add-new">
+				<textarea id="message-input" class="message-input"></textarea>
+				<button onclick="App.addMessage()">
+					Add message
+				</button>
+			</div>
+			<p id="content"></p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<script type="text/tmpl" id="searchResultUser">
+	<div class="result-item">
+		<p>
+			<span class="item-label">U</span>
+			<a class="name" href="user.html?user=<%=username%>"><%=username%></a>
+		</p>
+	</div>
+</script>
+<script type="text/tmpl" id="searchResultTag">
+	<div class="result-item">
+		<p>
+			<span class="item-label tag">T</span>
+			<a class="name" href="tag.html?tag=<%=tag%>"><%=tag%></a>
+		</p>
+	</div>
+</script>
+
+<script type="text/tmpl" id="message">
+	<div class="message">
+		<span>
+			<a class="name" href="user.html?user=<%=user.username%>"><%=user.username%></a>
+		</span>
+		<span><%=message%></span>
+	</div>
+</script>
+<script type="text/tmpl" id="usertmpl">
+	<a class="item" href="timeline.html">Timeline</a>
+	<a class="item" href="search.html">Search</a>
+	<span class="right">
+		<a>Xin chào <a class="item green" href="user.html?user=<%=username%>"><%=username%></a>
+		<a class="item" onclick="App.logout()">Logout</a>
+	</span>
+</script>

@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+GET		/api/timeline				controllers.MessageController.timeline()
+POST	/api/timeline				controllers.MessageController.timeline()
+GET		/api/users/:username		controllers.MessageController.byUser(username:String)
+POST	/api/users/:username		controllers.MessageController.byUser(username:String)
+GET		/api/users/:username/:page	controllers.MessageController.byUserWithPage(username:String, page:Integer)
+GET		/api/tags/:tagname			controllers.MessageController.byTag(tagname:String)
+POST	/api/tags/:tagname			controllers.MessageController.byTag(tagname:String)
+GET		/api/tags/:tagname/:page	controllers.MessageController.byTagWithPage(tagname:String, page: Integer)
+POST	/api/postmessage			controllers.MessageController.postMessage()
+POST 	/api/register				controllers.UserController.register()
+POST 	/api/login					controllers.UserController.login()
+POST 	/api/logout					controllers.UserController.logout()
+
+
+GET 	/api/search/:query			controllers.MessageController.search(query:String)
+GET 	/api/searchmessage/:query		controllers.MessageController.searchmessage(query:String)
