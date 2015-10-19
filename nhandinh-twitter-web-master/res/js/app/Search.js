@@ -11,17 +11,31 @@ Search = {
         if (val == '') {
             return;
         }
-        if (this.ajax) {
-            this.ajax.abort();
-        }
-        this.ajax = $.ajax({
-            url: Config.service + "api/searchmessage/" + obj.val(),
-            success: function (data) {
-                if (data.status == 0) {
-                    _self.renderSearch(data.data);
-                }
+        if (val.startsWith("@")) {
+            if (this.ajax) {
+                this.ajax.abort();
             }
-        });
+            this.ajax = $.ajax({
+                url: Config.service + Config.search + obj.val().substr(1),
+                success: function (data) {
+                    if (data.status == 0) {
+                        _self.renderSearch(data.data);
+                    }
+                }
+            });
+        } else {
+            if (this.ajax) {
+                this.ajax.abort();
+            }
+            this.ajax = $.ajax({
+                url: Config.service + Config.searchMessage + obj.val(),
+                success: function (data) {
+                    if (data.status == 0) {
+                        _self.renderSearch(data.data);
+                    }
+                }
+            });
+        }
     },
 
     renderSearch: function (data) {
@@ -29,16 +43,16 @@ Search = {
         resultObj.html('');
 
         // for (var i = 0; i < data.users.length; i++) {
-            // resultObj.append(tmpl("searchResultUser", data.users[i]));
+        // resultObj.append(tmpl("searchResultUser", data.users[i]));
         // }
         // for (var i = 0; i < data.tags.length; i++) {
-            // resultObj.append(tmpl("searchResultTag", data.tags[i]));
+        // resultObj.append(tmpl("searchResultTag", data.tags[i]));
         // }
 
         for (var i = 0; i < data.length; i++) {
-        	data[i].message = App.normalize(data[i].message);
-        	var html = tmpl("message", data[i]);
-        	$('#content').append(html);
+            data[i].message = App.normalize(data[i].message);
+            var html = tmpl("message", data[i]);
+            $('#content').append(html);
         }
     },
 
@@ -47,7 +61,9 @@ Search = {
     }
 
 };
+//setInterval(function () { alert("Hello") }, 3000);
 
-// $(document).ready(function () {
+$(document).ready(function () {
+    // setInterval(Search.doSearch($('#inputSearch')), 1000);
     // Search.init();
-// });
+});

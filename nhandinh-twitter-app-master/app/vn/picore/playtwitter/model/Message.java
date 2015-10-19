@@ -84,6 +84,13 @@ public class Message {
 				.as(Message.class);
 		return Message.normalize(msgs);
 	}
+
+	public static List<Message> loadInUser(List<UUID> inArr, Integer from, Integer perpage) {
+
+		MongoCursor<Message> msgs = Message.messages().find("{creator: {$in: #}}", inArr).sort("{createddate: -1}")
+				.skip(from).limit(perpage).as(Message.class);
+		return Message.normalize(msgs);
+	}
 	
 	public static List<Message> getByUser(UUID id, Integer from, Integer perpage, Long timestamp) {
 		MongoCursor<Message> msgs = null;

@@ -1,0 +1,9 @@
+New log file opened at Mon Oct 19 19:21:55 ICT 2015 by 2492@CoiDuCon
+Sending msg to client activator-a6a23682-e0f2-4374-8cef-e7862b437f0c: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: C:\xampp\htdocs\nhandinh-twitter-app-master\.sbtserver\connections\master.log))
+Sending msg to client activator-a6a23682-e0f2-4374-8cef-e7862b437f0c: DetachedLogEvent(LogMessage(debug,sbt client logs are in: C:\xampp\htdocs\nhandinh-twitter-app-master\.sbtserver\connections\activator-a6a23682-e0f2-4374-8cef-e7862b437f0c.log))
+Sending msg to client activator-a6a23682-e0f2-4374-8cef-e7862b437f0c: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: C:\xampp\htdocs\nhandinh-twitter-app-master\.sbtserver\master.log))
+Reading next message from client.
+Client activator-a6a23682-e0f2-4374-8cef-e7862b437f0c EOF, shutting down.
+Stopping client.
+Client activator-a6a23682-e0f2-4374-8cef-e7862b437f0c thread exiting.
+Dropping message (0,ReceivedResponse()) to dead client activator-a6a23682-e0f2-4374-8cef-e7862b437f0c

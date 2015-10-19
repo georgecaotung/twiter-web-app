@@ -80,7 +80,7 @@ public class User {
 	}
 
 	public static MongoCursor<User> search(String query) {
-		MongoCursor<User> cursor = User.users().find("{username: #}", Pattern.compile(query)).skip(0).limit(5)
+		MongoCursor<User> cursor = User.users().find("{username: #}", Pattern.compile(query)).skip(0)
 				.as(User.class);
 		return cursor;
 	}

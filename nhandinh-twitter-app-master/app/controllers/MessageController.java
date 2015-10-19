@@ -183,17 +183,8 @@ public class MessageController extends Controller {
 	}
 	
 	public Result searchmessage(String query) {
-		/*
-		 * HashMap<String, Object> retData = new HashMap<String, Object>();
-		 * retData.put("users", UserService.getInstance().search(query));
-		 * retData.put("tags", HashTagService.getInstance().searchTag(query));
-		 * 
-		 * ResponseData<HashMap> res = new ResponseData<HashMap>(0, retData,
-		 * "SUCCESS");
-		 */
 		query = query.toLowerCase();
 		MongoCursor<Message> listMessage=  MessageService.getInstance().findByMessage(query,0,30);
-		//MongoCursor<HashTag> list = HashTagService.getInstance().findByTagname(query, 0, 12);
 		List<UUID> idArr = new ArrayList<UUID>();
 		while (listMessage.hasNext()) {
 			idArr.add(listMessage.next().getId());
@@ -201,6 +192,22 @@ public class MessageController extends Controller {
 		List<Message> lm = new ArrayList<Message>();
 
 		lm = MessageService.getInstance().loadIn(idArr);
+		ResponseData<List> res = new ResponseData<List>(0, lm, "SUCCESS");
+		JsonNode jn = Json.toJson(res);
+		response().setHeader("Access-Control-Allow-Origin", "*");
+		return ok(jn);
+	}
+
+	public Result searchuser(String query) {
+		query = query.toLowerCase();
+		MongoCursor<User> listUser=  UserService.getInstance().search(query);
+		List<UUID> idArr = new ArrayList<UUID>();
+		while (listUser.hasNext()) {
+			idArr.add(listUser.next().getId());
+		}
+		List<Message> lm = new ArrayList<Message>();
+
+		lm = MessageService.getInstance().loadInUser(idArr,0,30);
 		ResponseData<List> res = new ResponseData<List>(0, lm, "SUCCESS");
 		JsonNode jn = Json.toJson(res);
 		response().setHeader("Access-Control-Allow-Origin", "*");

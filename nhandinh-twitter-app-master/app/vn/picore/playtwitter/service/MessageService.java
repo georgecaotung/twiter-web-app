@@ -33,6 +33,10 @@ public class MessageService {
 		return Message.loadIn(inArr);
 	}
 
+	public List<Message> loadInUser(List<UUID> inArr, Integer from, Integer perpage) {
+		return Message.loadInUser(inArr,from, perpage);
+	}
+
 	public List<Message> getByUsername(String username, Integer from, Integer perpage, Long timestamp) {
 		User user = User.getByUsername(username);
 		if (user == null)

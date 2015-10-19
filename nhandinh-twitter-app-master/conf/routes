@@ -24,4 +24,6 @@ POST 	/api/logout					controllers.UserController.logout()
 
 
 GET 	/api/search/:query			controllers.MessageController.search(query:String)
-GET 	/api/searchmessage/:query		controllers.MessageController.searchmessage(query:String)
+GET 	/api/searchmessage/:query	controllers.MessageController.searchmessage(query:String)
+GET 	/api/searchuser/:query		controllers.MessageController.searchuser(query:String)
+GET 	/api/searchbox/:query		controllers.MessageController.searchBox(query:String)

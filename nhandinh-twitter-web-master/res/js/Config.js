@@ -1,6 +1,8 @@
 Config = {
 	//service : 'http://52.74.146.121:9000/'
-		service : 'http://localhost:9000/'
+    service: 'http://localhost:9000/',
+    searchMessage: 'api/search/',
+    search: 'api/searchuser/'
 };
 
 Utils = {
