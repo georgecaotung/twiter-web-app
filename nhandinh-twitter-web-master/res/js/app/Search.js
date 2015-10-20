@@ -42,13 +42,6 @@ Search = {
         var resultObj = $('#searchResult');
         resultObj.html('');
 
-        // for (var i = 0; i < data.users.length; i++) {
-        // resultObj.append(tmpl("searchResultUser", data.users[i]));
-        // }
-        // for (var i = 0; i < data.tags.length; i++) {
-        // resultObj.append(tmpl("searchResultTag", data.tags[i]));
-        // }
-
         for (var i = 0; i < data.length; i++) {
             data[i].message = App.normalize(data[i].message);
             var html = tmpl("message", data[i]);
@@ -61,9 +54,7 @@ Search = {
     }
 
 };
-//setInterval(function () { alert("Hello") }, 3000);
 
 $(document).ready(function () {
-    // setInterval(Search.doSearch($('#inputSearch')), 1000);
-    // Search.init();
+    setInterval(function () {Search.doSearch($('#inputSearch'); }, 10000);
 });
